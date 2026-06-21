@@ -1,6 +1,19 @@
 # KMNIST / CIFAR-10 Clustering Project
 
-This project runs feature extraction and clustering experiments for the final project:
+Course project for Sungkyunkwan University, 2026 Spring:
+[Machine Learning Cornerstone_ROB5020_41(유현우)](https://canvas.skku.edu/courses/73956).
+
+This repository was developed based on the course lectures and course-provided example code. The course-provided notebooks and raw datasets are not included in this public repository.
+
+## Report
+
+Full report: [report.pdf](report.pdf)
+
+[![Report preview](report_figures/report_preview_page1.png)](report.pdf)
+
+## Overview
+
+This project runs feature extraction and clustering experiments:
 
 - Datasets: KMNIST, CIFAR-10
 - Feature representations: PCA, AutoEncoder latent, CNN embedding
@@ -18,31 +31,31 @@ conda activate KMNIST_CIFAR-10_env
 Run one experiment from the default config:
 
 ```powershell
-python final_project/run.py --config final_project/configs/base.yaml
+python run.py --config configs/base.yaml
 ```
 
 Override selected values for a one-off run:
 
 ```powershell
-python final_project/run.py --config final_project/configs/base.yaml --set dataset.name=CIFAR10 --set feature.kind=cnn --set clustering.method=gmm --set project.run_name=cifar10_cnn_gmm
+python run.py --config configs/base.yaml --set dataset.name=CIFAR10 --set feature.kind=cnn --set clustering.method=gmm --set project.run_name=cifar10_cnn_gmm
 ```
 
 Run the planned experiment table:
 
 ```powershell
-python final_project/run.py --config final_project/configs/base.yaml --plan final_project/configs/experiments.csv
+python run.py --config configs/base.yaml --plan configs/experiments.csv
 ```
 
 Only print the expanded configs without training:
 
 ```powershell
-python final_project/run.py --config final_project/configs/base.yaml --plan final_project/configs/experiments.csv --dry-run
+python run.py --config configs/base.yaml --plan configs/experiments.csv --dry-run
 ```
 
 Rebuild comparison plots from saved runs:
 
 ```powershell
-python final_project/compare_runs.py --runs-dir final_project/outputs/runs
+python compare_runs.py --runs-dir outputs/runs
 ```
 
 ## Output Layout
@@ -50,7 +63,7 @@ python final_project/compare_runs.py --runs-dir final_project/outputs/runs
 Each run is saved under:
 
 ```text
-final_project/outputs/runs/<run_name>/
+outputs/runs/<run_name>/
 ```
 
 By default, `project.run_name` is the run cache key. If a completed run folder already contains `metrics.json` and `config.yaml`, the runner reuses it instead of training again. Delete that run folder manually when you want to force a rerun.
@@ -71,7 +84,7 @@ Typical files:
 Shared fixed-subset overview files are saved once under:
 
 ```text
-final_project/outputs/shared_dataset_views/<dataset_subset_key>/
+outputs/shared_dataset_views/<dataset_subset_key>/
 ```
 
 Typical shared files:
@@ -85,25 +98,25 @@ Typical shared files:
 Batch comparison files are saved under:
 
 ```text
-final_project/outputs/comparisons/<timestamp>/
+outputs/comparisons/<timestamp>/
 ```
 
 Comparison metric bar plots use one figure per metric, with dataset subplots:
 
 ```text
-final_project/outputs/comparisons/<timestamp>/metric_bars/
+outputs/comparisons/<timestamp>/metric_bars/
 ```
 
 Run-specific plots are also copied into the comparison folder for easier report writing:
 
 ```text
-final_project/outputs/comparisons/<timestamp>/run_plots/<run_name>/
+outputs/comparisons/<timestamp>/run_plots/<run_name>/
 ```
 
 The copy manifest is saved as:
 
 ```text
-final_project/outputs/comparisons/<timestamp>/copied_run_plots.csv
+outputs/comparisons/<timestamp>/copied_run_plots.csv
 ```
 
 Dataset subset indices are reused by default through:
@@ -115,13 +128,13 @@ project:
 
 dataset:
   fixed_subset: true
-  split_dir: final_project/splits
+  split_dir: splits
   regenerate_subset: false
 
 visualization:
   dataset_overview:
     shared: true
-    output_dir: final_project/outputs/shared_dataset_views
+    output_dir: outputs/shared_dataset_views
 ```
 
 ## Experiment Table Format
