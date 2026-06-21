@@ -1,0 +1,104 @@
+project:
+  run_name: kmnist_pca10_kmeans
+  output_dir: final_project/outputs
+  seed: 42
+  device: auto
+  num_workers: 0
+  save_features: true
+  save_models: true
+  save_plots: true
+  run_dir_mode: name
+  reuse_existing_run: true
+
+dataset:
+  name: KMNIST
+  root: final_project/data
+  download: true
+  fixed_subset: true
+  split_dir: final_project/splits
+  regenerate_subset: false
+  train_size: 12000
+  test_size: 3000
+  train_batch_size: 128
+  eval_batch_size: 256
+  normalize: false
+  mean: null
+  std: null
+  augment_train: false
+  random_crop_padding: 0
+  random_horizontal_flip: false
+  random_affine_degrees: 0
+  random_translate: 0
+  pin_memory: true
+
+feature:
+  kind: pca
+  scale_before_cluster: true
+  pca:
+    n_components: 10
+    whiten: false
+  ae:
+    model_type: mlp
+    latent_dim: 16
+    hidden_dims: [256, 64]
+    lr: 0.001
+    weight_decay: 0.0
+    epochs: 5
+    loss: mse
+  cnn:
+    arch: small_cnn
+    channels: [32, 64, 128]
+    embedding_dim: 128
+    dropout: 0.0
+    use_batchnorm: true
+    training_type: supervised_classifier
+    lr: 0.001
+    weight_decay: 0.0
+    epochs: 5
+    optimizer: adam
+  foundation:
+    provider: dinov2
+    model: dinov2_vits14
+    input_size: 224
+
+clustering:
+  method: kmeans
+  n_clusters: 10
+  kmeans:
+    n_init: 50
+    max_iter: 500
+  gmm:
+    covariance_type: diag
+    n_init: 3
+    reg_covar: 0.000001
+    max_iter: 300
+
+evaluation:
+  silhouette_sample_size: 2000
+
+visualization:
+  dataset_overview:
+    enabled: true
+    shared: true
+    output_dir: final_project/outputs/shared_dataset_views
+    sample_count: 40
+    cols: 10
+  feature_pca2:
+    enabled: true
+    splits: [train, test]
+  max_points_2d: 2000
+  cluster_samples_per_cluster: 12
+  max_clusters_to_plot: 10
+  mapped_class_grid:
+    enabled: true
+    split: test
+    samples_per_class: 40
+    cols: 10
+  tsne:
+    enabled: true
+    sample_size: 1500
+    perplexity: 30
+
+batch:
+  auto_compare: true
+  continue_on_error: true

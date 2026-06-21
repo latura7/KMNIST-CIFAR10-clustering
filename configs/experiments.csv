@@ -1,0 +1,46 @@
+enabled,project.run_name,dataset.name,dataset.train_size,dataset.test_size,dataset.normalize,dataset.augment_train,dataset.random_crop_padding,dataset.random_horizontal_flip,dataset.random_affine_degrees,dataset.random_translate,feature.kind,feature.pca.n_components,feature.ae.model_type,feature.ae.latent_dim,feature.ae.epochs,feature.cnn.arch,feature.cnn.channels,feature.cnn.embedding_dim,feature.cnn.dropout,feature.cnn.use_batchnorm,feature.cnn.epochs,feature.cnn.optimizer,feature.cnn.lr,feature.cnn.weight_decay,feature.scale_before_cluster,clustering.method,clustering.n_clusters,clustering.gmm.covariance_type,clustering.gmm.reg_covar,visualization.tsne.enabled,notes,feature.foundation.provider,feature.foundation.model
+true,kmnist_pca10_kmeans,KMNIST,12000,3000,false,false,0,false,0,0,pca,10,,,,,,,,,,,,,true,kmeans,10,,,true,required baseline pca kmeans
+true,kmnist_ae256_e5_kmeans,KMNIST,12000,3000,false,false,0,false,0,0,ae,,mlp,256,5,,,,,,,,,,true,kmeans,10,,,true,required baseline ae kmeans
+true,kmnist_cnn128_kmeans,KMNIST,12000,3000,false,false,0,false,0,0,cnn,,,,,small_cnn,"[32,64,128]",128,0.0,true,5,adam,0.001,0.0,true,kmeans,10,,,true,small cnn baseline kmnist
+true,kmnist_cnn256_wide_do025_kmeans,KMNIST,12000,3000,false,true,0,false,10,0.1,cnn,,,,,small_cnn,"[64,128,256]",256,0.25,true,12,adam,0.001,0.0001,true,kmeans,10,,,true,wider small cnn capacity check kmnist
+true,kmnist_resnet18_e20_kmeans,KMNIST,12000,3000,true,true,0,false,10,0.1,cnn,,,,,resnet18,,128,0.0,true,20,sgd,0.05,0.0005,true,kmeans,10,,,true,resnet18 12k main kmnist kmeans
+true,kmnist_resnet18_e20_kmeans_full,KMNIST,0,0,true,true,0,false,10,0.1,cnn,,,,,resnet18,,128,0.0,true,20,sgd,0.05,0.0005,true,kmeans,10,,,true,resnet18 full main kmnist kmeans
+true,kmnist_resnet18_e20_gmm_full,KMNIST,0,0,true,true,0,false,10,0.1,cnn,,,,,resnet18,,128,0.0,true,20,sgd,0.05,0.0005,true,gmm,10,diag,0.0001,true,gmm explanation same full resnet feature kmnist
+true,cifar10_pca100_kmeans,CIFAR10,12000,3000,false,false,0,false,0,0,pca,100,,,,,,,,,,,,,true,kmeans,10,,,true,required baseline pca kmeans
+true,cifar10_ae64_kmeans,CIFAR10,12000,3000,false,false,0,false,0,0,ae,,conv,64,8,,,,,,,,,,true,kmeans,10,,,true,required baseline ae kmeans
+true,cifar10_cnn256_wide_aug_kmeans,CIFAR10,12000,3000,true,true,4,true,0,0,cnn,,,,,small_cnn,"[64,128,256]",256,0.25,true,20,adam,0.001,0.0001,true,kmeans,10,,,true,best small cnn comparison cifar10
+true,cifar10_resnet18_e20_kmeans,CIFAR10,12000,3000,true,true,4,true,0,0,cnn,,,,,resnet18,,128,0.0,true,20,sgd,0.05,0.0005,true,kmeans,10,,,true,resnet18 12k main cifar10 kmeans
+true,cifar10_resnet18_e20_kmeans_full,CIFAR10,0,0,true,true,4,true,0,0,cnn,,,,,resnet18,,128,0.0,true,20,sgd,0.05,0.0005,true,kmeans,10,,,true,resnet18 full main cifar10 kmeans
+true,cifar10_resnet18_e20_gmm_full,CIFAR10,0,0,true,true,4,true,0,0,cnn,,,,,resnet18,,128,0.0,true,20,sgd,0.05,0.0005,true,gmm,10,diag,0.0001,true,gmm explanation same full resnet feature cifar10
+true,kmnist_pca2_kmeans,KMNIST,12000,3000,false,false,0,false,0,0,pca,2,,,,,,,,,,,,,true,kmeans,10,,,false,sweep pca components kmnist n=2
+true,kmnist_pca20_kmeans,KMNIST,12000,3000,false,false,0,false,0,0,pca,20,,,,,,,,,,,,,true,kmeans,10,,,false,sweep pca components kmnist n=20
+true,kmnist_pca100_kmeans,KMNIST,12000,3000,false,false,0,false,0,0,pca,100,,,,,,,,,,,,,true,kmeans,10,,,false,sweep pca components kmnist n=100
+true,kmnist_pca200_kmeans,KMNIST,12000,3000,false,false,0,false,0,0,pca,200,,,,,,,,,,,,,true,kmeans,10,,,false,sweep pca components kmnist n=200
+true,kmnist_pca300_kmeans,KMNIST,12000,3000,false,false,0,false,0,0,pca,300,,,,,,,,,,,,,true,kmeans,10,,,false,sweep pca components kmnist n=300
+true,cifar10_pca2_kmeans,CIFAR10,12000,3000,false,false,0,false,0,0,pca,2,,,,,,,,,,,,,true,kmeans,10,,,false,sweep pca components cifar10 n=2
+true,cifar10_pca10_kmeans,CIFAR10,12000,3000,false,false,0,false,0,0,pca,10,,,,,,,,,,,,,true,kmeans,10,,,false,sweep pca components cifar10 n=10
+true,cifar10_pca20_kmeans,CIFAR10,12000,3000,false,false,0,false,0,0,pca,20,,,,,,,,,,,,,true,kmeans,10,,,false,sweep pca components cifar10 n=20
+true,cifar10_pca50_kmeans,CIFAR10,12000,3000,false,false,0,false,0,0,pca,50,,,,,,,,,,,,,true,kmeans,10,,,false,sweep pca components cifar10 n=50
+true,cifar10_pca200_kmeans,CIFAR10,12000,3000,false,false,0,false,0,0,pca,200,,,,,,,,,,,,,true,kmeans,10,,,false,sweep pca components cifar10 n=200
+true,cifar10_pca300_kmeans,CIFAR10,12000,3000,false,false,0,false,0,0,pca,300,,,,,,,,,,,,,true,kmeans,10,,,false,sweep pca components cifar10 n=300
+true,kmnist_ae4_e5_kmeans,KMNIST,12000,3000,false,false,0,false,0,0,ae,,mlp,4,5,,,,,,,,,,true,kmeans,10,,,false,sweep ae latent dim kmnist latent=4
+true,kmnist_ae8_e5_kmeans,KMNIST,12000,3000,false,false,0,false,0,0,ae,,mlp,8,5,,,,,,,,,,true,kmeans,10,,,false,sweep ae latent dim kmnist latent=8
+true,kmnist_ae32_e5_kmeans,KMNIST,12000,3000,false,false,0,false,0,0,ae,,mlp,32,5,,,,,,,,,,true,kmeans,10,,,false,sweep ae latent dim kmnist latent=32
+true,kmnist_ae64_e5_kmeans,KMNIST,12000,3000,false,false,0,false,0,0,ae,,mlp,64,5,,,,,,,,,,true,kmeans,10,,,false,sweep ae latent dim kmnist latent=64
+true,kmnist_ae128_e5_kmeans,KMNIST,12000,3000,false,false,0,false,0,0,ae,,mlp,128,5,,,,,,,,,,true,kmeans,10,,,false,sweep ae latent dim kmnist latent=128
+true,kmnist_ae512_e5_kmeans,KMNIST,12000,3000,false,false,0,false,0,0,ae,,mlp,512,5,,,,,,,,,,true,kmeans,10,,,false,sweep ae latent dim kmnist latent=512
+true,kmnist_ae16_e3_kmeans,KMNIST,12000,3000,false,false,0,false,0,0,ae,,mlp,16,3,,,,,,,,,,true,kmeans,10,,,false,sweep ae epochs kmnist epochs=3
+true,kmnist_ae16_e10_kmeans,KMNIST,12000,3000,false,false,0,false,0,0,ae,,mlp,16,10,,,,,,,,,,true,kmeans,10,,,false,sweep ae epochs kmnist epochs=10
+true,kmnist_ae16_e15_kmeans,KMNIST,12000,3000,false,false,0,false,0,0,ae,,mlp,16,15,,,,,,,,,,true,kmeans,10,,,false,sweep ae epochs kmnist epochs=15
+true,cifar10_ae4_e8_kmeans,CIFAR10,12000,3000,false,false,0,false,0,0,ae,,conv,4,8,,,,,,,,,,true,kmeans,10,,,false,sweep ae latent dim cifar10 latent=4
+true,cifar10_ae8_e8_kmeans,CIFAR10,12000,3000,false,false,0,false,0,0,ae,,conv,8,8,,,,,,,,,,true,kmeans,10,,,false,sweep ae latent dim cifar10 latent=8
+true,cifar10_ae16_e8_kmeans,CIFAR10,12000,3000,false,false,0,false,0,0,ae,,conv,16,8,,,,,,,,,,true,kmeans,10,,,false,sweep ae latent dim cifar10 latent=16
+true,cifar10_ae32_e8_kmeans,CIFAR10,12000,3000,false,false,0,false,0,0,ae,,conv,32,8,,,,,,,,,,true,kmeans,10,,,false,sweep ae latent dim cifar10 latent=32
+true,cifar10_ae128_e8_kmeans,CIFAR10,12000,3000,false,false,0,false,0,0,ae,,conv,128,8,,,,,,,,,,true,kmeans,10,,,false,sweep ae latent dim cifar10 latent=128
+true,cifar10_ae256_e8_kmeans,CIFAR10,12000,3000,false,false,0,false,0,0,ae,,conv,256,8,,,,,,,,,,true,kmeans,10,,,false,sweep ae latent dim cifar10 latent=256
+true,cifar10_ae512_e8_kmeans,CIFAR10,12000,3000,false,false,0,false,0,0,ae,,conv,512,8,,,,,,,,,,true,kmeans,10,,,false,sweep ae latent dim cifar10 latent=512
+true,cifar10_ae64_e3_kmeans,CIFAR10,12000,3000,false,false,0,false,0,0,ae,,conv,64,3,,,,,,,,,,true,kmeans,10,,,false,sweep ae epochs cifar10 epochs=3
+true,cifar10_ae64_e5_kmeans,CIFAR10,12000,3000,false,false,0,false,0,0,ae,,conv,64,5,,,,,,,,,,true,kmeans,10,,,false,sweep ae epochs cifar10 epochs=5
+true,cifar10_ae64_e10_kmeans,CIFAR10,12000,3000,false,false,0,false,0,0,ae,,conv,64,10,,,,,,,,,,true,kmeans,10,,,false,sweep ae epochs cifar10 epochs=10
+true,cifar10_ae64_e15_kmeans,CIFAR10,12000,3000,false,false,0,false,0,0,ae,,conv,64,15,,,,,,,,,,true,kmeans,10,,,false,sweep ae epochs cifar10 epochs=15
+true,cifar10_dinov2_vits14_kmeans_full,CIFAR10,0,0,false,false,0,false,0,0,foundation,,,,,,,,,,,,,,true,kmeans,10,,,true,optional foundation DINOv2 ViT-S/14 image embedding,dinov2,dinov2_vits14

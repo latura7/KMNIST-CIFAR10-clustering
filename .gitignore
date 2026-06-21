@@ -1,0 +1,34 @@
+data/
+outputs/
+splits/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Course-provided or downloaded reference materials
+course_example_code/
+reference/
+Final_Project_kor_extracted.txt
+debuge_tex.txt
+
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+*.xdv
+
+# Local visual debugging artifacts not used by the report
+report_figures/debug_*/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.vscode/
