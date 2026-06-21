@@ -1,6 +1,6 @@
 project:
   run_name: kmnist_pca10_kmeans
-  output_dir: final_project/outputs
+  output_dir: outputs
   seed: 42
   device: auto
   num_workers: 0
@@ -12,10 +12,10 @@ project:
 
 dataset:
   name: KMNIST
-  root: final_project/data
+  root: data
   download: true
   fixed_subset: true
-  split_dir: final_project/splits
+  split_dir: splits
   regenerate_subset: false
   train_size: 12000
   test_size: 3000
@@ -80,7 +80,7 @@ visualization:
   dataset_overview:
     enabled: true
     shared: true
-    output_dir: final_project/outputs/shared_dataset_views
+    output_dir: outputs/shared_dataset_views
     sample_count: 40
     cols: 10
   feature_pca2:

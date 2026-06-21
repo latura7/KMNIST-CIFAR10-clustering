@@ -26,7 +26,7 @@ def _dataset_name(name: str) -> str:
 
 
 def _split_path(dataset_cfg: dict[str, Any], normalized_name: str, split: str, full_size: int, subset_size: int, seed: int) -> Path:
-    split_dir = Path(dataset_cfg.get("split_dir", "final_project/splits"))
+    split_dir = Path(dataset_cfg.get("split_dir", "splits"))
     split_dir.mkdir(parents=True, exist_ok=True)
     filename = f"{normalized_name}_{split}_full{full_size}_size{subset_size}_seed{seed}.npy"
     return split_dir / filename

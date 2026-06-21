@@ -1,0 +1,3 @@
+﻿Source comparison folder: outputs\comparisons\final_all_20260621_205846
+Included enabled experiments from configs/experiments.csv: 49
+This summary intentionally excludes run_plots and model/feature files.

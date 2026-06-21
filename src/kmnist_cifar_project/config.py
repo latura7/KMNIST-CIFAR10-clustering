@@ -104,9 +104,9 @@ def print_config(cfg: dict[str, Any]) -> None:
 def make_parser(default_mode: str = "single") -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Run KMNIST/CIFAR-10 feature clustering experiments.")
     parser.add_argument("--mode", choices=["single", "batch", "compare", "resnet-epoch-sweep"], default=default_mode)
-    parser.add_argument("--config", default="final_project/configs/base.yaml")
+    parser.add_argument("--config", default="configs/base.yaml")
     parser.add_argument("--plan", default=None, help="CSV plan. If provided, mode=batch is implied unless --mode is set.")
-    parser.add_argument("--runs-dir", default="final_project/outputs/runs")
+    parser.add_argument("--runs-dir", default="outputs/runs")
     parser.add_argument("--output-dir", default=None, help="Comparison output directory override.")
     parser.add_argument("--set", action="append", default=[], help="Override config with dot path, e.g. --set dataset.name=CIFAR10")
     parser.add_argument("--dry-run", action="store_true", help="Print expanded configs without running training.")

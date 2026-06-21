@@ -1,0 +1,7 @@
+﻿{
+  "runs_dir": "outputs/runs",
+  "output_dir": "outputs/comparisons/final_all_20260621_205846",
+  "num_runs": 49,
+  "sort_metric": "ARI",
+  "copied_run_plot_count": 922
+}

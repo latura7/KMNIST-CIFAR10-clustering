@@ -11,6 +11,8 @@ Full report: [report.pdf](report.pdf)
 
 [![Report preview](report_figures/report_preview_page1.png)](report.pdf)
 
+Final comparison summary files are available in [final_compare_summary/](final_compare_summary/).
+
 ## Overview
 
 This project runs feature extraction and clustering experiments:
@@ -21,6 +23,8 @@ This project runs feature extraction and clustering experiments:
 - Outputs: per-run config, metrics, labels, optional features/models, plots, and batch comparison plots
 
 ## Commands
+
+Run commands from the repository root directory.
 
 Activate the environment first:
 

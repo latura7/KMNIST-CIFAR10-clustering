@@ -2,8 +2,10 @@ enabled,project.run_name,dataset.name,dataset.train_size,dataset.test_size,datas
 true,kmnist_pca10_kmeans,KMNIST,12000,3000,false,false,0,false,0,0,pca,10,,,,,,,,,,,,,true,kmeans,10,,,true,required baseline pca kmeans
 true,kmnist_ae256_e5_kmeans,KMNIST,12000,3000,false,false,0,false,0,0,ae,,mlp,256,5,,,,,,,,,,true,kmeans,10,,,true,required baseline ae kmeans
 true,kmnist_cnn128_kmeans,KMNIST,12000,3000,false,false,0,false,0,0,cnn,,,,,small_cnn,"[32,64,128]",128,0.0,true,5,adam,0.001,0.0,true,kmeans,10,,,true,small cnn baseline kmnist
+true,kmnist_cnn128_kmeans_full,KMNIST,0,0,false,false,0,false,0,0,cnn,,,,,small_cnn,"[32,64,128]",128,0.0,true,5,adam,0.001,0.0,true,kmeans,10,,,true,small cnn full train comparison kmnist,,
 true,kmnist_cnn256_wide_do025_kmeans,KMNIST,12000,3000,false,true,0,false,10,0.1,cnn,,,,,small_cnn,"[64,128,256]",256,0.25,true,12,adam,0.001,0.0001,true,kmeans,10,,,true,wider small cnn capacity check kmnist
 true,kmnist_resnet18_e20_kmeans,KMNIST,12000,3000,true,true,0,false,10,0.1,cnn,,,,,resnet18,,128,0.0,true,20,sgd,0.05,0.0005,true,kmeans,10,,,true,resnet18 12k main kmnist kmeans
+true,kmnist_resnet18_e20_gmm,KMNIST,12000,3000,true,true,0,false,10,0.1,cnn,,,,,resnet18,,128,0.0,true,20,sgd,0.05,0.0005,true,gmm,10,diag,0.0001,true,gmm explanation same 12k resnet feature kmnist,,
 true,kmnist_resnet18_e20_kmeans_full,KMNIST,0,0,true,true,0,false,10,0.1,cnn,,,,,resnet18,,128,0.0,true,20,sgd,0.05,0.0005,true,kmeans,10,,,true,resnet18 full main kmnist kmeans
 true,kmnist_resnet18_e20_gmm_full,KMNIST,0,0,true,true,0,false,10,0.1,cnn,,,,,resnet18,,128,0.0,true,20,sgd,0.05,0.0005,true,gmm,10,diag,0.0001,true,gmm explanation same full resnet feature kmnist
 true,cifar10_pca100_kmeans,CIFAR10,12000,3000,false,false,0,false,0,0,pca,100,,,,,,,,,,,,,true,kmeans,10,,,true,required baseline pca kmeans

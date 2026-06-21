@@ -36,7 +36,7 @@
 \parindent=0.0in
 \parskip=0.1in
 
-\graphicspath{{./report_figures/}{final_project/report_figures/}}
+\graphicspath{{./report_figures/}}
 
 \lstset{
     language=Python,
@@ -969,7 +969,7 @@ ResNet18 epoch sweep 에서 100 epochs 까지 성능이 상승했으므로, CIFA
 Batch 실행 명령은 다음과 같다.
 
 \begin{lstlisting}
-python final_project/run.py --config final_project/configs/base.yaml --plan final_project/configs/experiments.csv
+python run.py --config configs/base.yaml --plan configs/experiments.csv
 \end{lstlisting}
 
 Optional DINOv2 feature row is also included in \texttt{experiments.csv}.
@@ -979,10 +979,11 @@ DINOv2 weight is loaded through \texttt{torch.hub} from \texttt{facebookresearch
 PCA component sweep, AutoEncoder sweep, 저장된 ResNet18 feature 를 이용한 K-means \(k\) sweep plot 은 다음 명령으로 생성하였다.
 
 \begin{lstlisting}
-python final_project/generate_sweep_plots.py
+python generate_sweep_plots.py
 \end{lstlisting}
 
-최신 batch 비교 결과는 \texttt{outputs/comparisons/final\_representative\_20260621\_184548}에 저장되었다.
+최신 batch 비교 결과 요약은 \texttt{final\_compare\_summary}에 포함하였다.
+이 폴더에는 주요 비교 CSV 와 metric bar plot 만 저장하였다.
 Parameter sweep 결과는 \texttt{outputs/sweeps/20260621\_183235}에 저장되었다.
 보고서에 사용한 그림은 해당 output 에서 복사하거나 정리하여 \texttt{report\_figures} 폴더에 저장하였다.
 
