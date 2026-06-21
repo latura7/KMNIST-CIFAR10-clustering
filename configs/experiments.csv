@@ -11,6 +11,8 @@ true,cifar10_ae64_kmeans,CIFAR10,12000,3000,false,false,0,false,0,0,ae,,conv,64,
 true,cifar10_cnn256_wide_aug_kmeans,CIFAR10,12000,3000,true,true,4,true,0,0,cnn,,,,,small_cnn,"[64,128,256]",256,0.25,true,20,adam,0.001,0.0001,true,kmeans,10,,,true,best small cnn comparison cifar10
 true,cifar10_resnet18_e20_kmeans,CIFAR10,12000,3000,true,true,4,true,0,0,cnn,,,,,resnet18,,128,0.0,true,20,sgd,0.05,0.0005,true,kmeans,10,,,true,resnet18 12k main cifar10 kmeans
 true,cifar10_resnet18_e20_kmeans_full,CIFAR10,0,0,true,true,4,true,0,0,cnn,,,,,resnet18,,128,0.0,true,20,sgd,0.05,0.0005,true,kmeans,10,,,true,resnet18 full main cifar10 kmeans
+true,cifar10_resnet18_e50_kmeans_full,CIFAR10,0,0,true,true,4,true,0,0,cnn,,,,,resnet18,,128,0.0,true,50,sgd,0.05,0.0005,true,kmeans,10,,,false,resnet18 full epoch sweep cifar10 e50,,
+true,cifar10_resnet18_e100_kmeans_full,CIFAR10,0,0,true,true,4,true,0,0,cnn,,,,,resnet18,,128,0.0,true,100,sgd,0.05,0.0005,true,kmeans,10,,,false,resnet18 full epoch sweep cifar10 e100,,
 true,cifar10_resnet18_e20_gmm_full,CIFAR10,0,0,true,true,4,true,0,0,cnn,,,,,resnet18,,128,0.0,true,20,sgd,0.05,0.0005,true,gmm,10,diag,0.0001,true,gmm explanation same full resnet feature cifar10
 true,kmnist_pca2_kmeans,KMNIST,12000,3000,false,false,0,false,0,0,pca,2,,,,,,,,,,,,,true,kmeans,10,,,false,sweep pca components kmnist n=2
 true,kmnist_pca20_kmeans,KMNIST,12000,3000,false,false,0,false,0,0,pca,20,,,,,,,,,,,,,true,kmeans,10,,,false,sweep pca components kmnist n=20
